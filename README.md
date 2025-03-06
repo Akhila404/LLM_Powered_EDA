@@ -33,11 +33,8 @@ This function processes the uploaded CSV file and performs:
 
 #### 3. Function: generate_ai_insights(df_summary)
     def generate_ai_insights(df_summary):
-    
         prompt = f"Analyze the dataset summary and provide insights:\n\n{df_summary}"
-        
         response = ollama.chat(model="mistral", messages=[{"role": "user", "content": prompt}])
-        
         return response['message']['content']
     
 - Constructs a prompt using the dataset summary.
