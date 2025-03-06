@@ -16,9 +16,9 @@ This project is an LLM-powered Exploratory Data Analysis (EDA) tool that allows 
 #### 2. Function: eda_analysis(file_path)
 This function processes the uploaded CSV file and performs:
 
-**Missing value handling:**
-- Numeric columns → Filled with median
-- Categorical columns → Filled with mode
+**    **Missing value handling:**
+    - Numeric columns → Filled with median
+    - Categorical columns → Filled with mode
 
 **Data Summary:**
 - Generates df.describe(include='all')
@@ -33,8 +33,11 @@ This function processes the uploaded CSV file and performs:
 
 #### 3. Function: generate_ai_insights(df_summary)
 def generate_ai_insights(df_summary):
+
     prompt = f"Analyze the dataset summary and provide insights:\n\n{df_summary}"
+    
     response = ollama.chat(model="mistral", messages=[{"role": "user", "content": prompt}])
+    
     return response['message']['content']
     
 - Constructs a prompt using the dataset summary.
@@ -73,26 +76,21 @@ demo.launch(share=True)
 ### 📥 Installation & Usage
 
 #### 1️⃣ Clone the Repository
-
 - git clone https://github.com/your-username/LLM-Powered-EDA.git
 - cd LLM-Powered-EDA
 
 #### 2️⃣ Install Dependencies
-
 - pip install gradio pandas matplotlib seaborn ollama
 
 #### 3️⃣ Start Ollama & Pull Mistral Model
-
 - ollama pull mistral:latest
 
 #### 4️⃣ Run the Application
-
 - python app.py
   
 Opens a Gradio interface in the browser. Upload a CSV file and get automated EDA insights.
 
 ### 🌟 Why Use This Project?
-
 **✔** No Manual EDA – Fully automated insights
 
 **✔** AI-Powered Analysis – Uses LLM for intelligent insights
