@@ -7,17 +7,6 @@ This project is an LLM-powered Exploratory Data Analysis (EDA) tool that allows 
 ### 🔍 Code Breakdown
 
 #### 1. Importing Libraries
-
-import gradio as gr
-
-import pandas as pd
-
-import matplotlib.pyplot as plt
-
-import seaborn as sns
-
-import ollama
-
 - Gradio: Used to create the interactive web interface.
 - Pandas: Handles CSV data processing.
 - Matplotlib & Seaborn: Generate visualizations.
@@ -25,30 +14,24 @@ import ollama
 
 
 #### 2. Function: eda_analysis(file_path)
-
 This function processes the uploaded CSV file and performs:
 
 **Missing value handling:**
-
 - Numeric columns → Filled with median
 - Categorical columns → Filled with mode
 
 **Data Summary:**
-
 - Generates df.describe(include='all')
 - Identifies missing values
 
 **AI-Powered Insights:**
-
 - Calls generate_ai_insights() for LLM-generated analysis
 
 **Visualizations:**
-
 - Calls generate_visualizations() to create plots
 - Returns the processed report and generated plots
 
 #### 3. Function: generate_ai_insights(df_summary)
-
 def generate_ai_insights(df_summary):
     prompt = f"Analyze the dataset summary and provide insights:\n\n{df_summary}"
     response = ollama.chat(model="mistral", messages=[{"role": "user", "content": prompt}])
@@ -58,9 +41,7 @@ def generate_ai_insights(df_summary):
 - Sends the prompt to Mistral-7B via Ollama.
 - Returns AI-generated insights.
 
-
 **4. Function: generate_visualizations(df)**
-
 Creates histograms for numeric columns and a correlation heatmap.
 
 plt.savefig(path)  # Saves each plot as an image
@@ -70,9 +51,7 @@ plot_paths.append(path)  # Stores the paths for Gradio to display
 - Histograms show data distributions.
 - Heatmap visualizes feature correlations.
 
-
 #### 5. Gradio Interface
-
 demo = gr.Interface(
     fn=eda_analysis,
     inputs=gr.File(type="filepath"),
@@ -85,9 +64,7 @@ demo = gr.Interface(
 - Allows users to upload a CSV file.
 - Outputs text-based insights and visualizations.
 
-
 #### 6. Running the Application
-
 demo.launch(share=True)
 
 - Launches the app with Gradio.
