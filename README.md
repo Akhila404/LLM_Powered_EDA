@@ -9,9 +9,13 @@ This project is an LLM-powered Exploratory Data Analysis (EDA) tool that allows 
 #### 1. Importing Libraries
 
 import gradio as gr
+
 import pandas as pd
+
 import matplotlib.pyplot as plt
+
 import seaborn as sns
+
 import ollama
 
 - Gradio: Used to create the interactive web interface.
