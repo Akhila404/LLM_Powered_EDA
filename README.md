@@ -31,13 +31,11 @@ This function processes the uploaded CSV file and performs:
 **Missing value handling:**
 
 - Numeric columns → Filled with median
-
 - Categorical columns → Filled with mode
 
 **Data Summary:**
 
 - Generates df.describe(include='all')
-
 - Identifies missing values
 
 **AI-Powered Insights:**
@@ -47,10 +45,8 @@ This function processes the uploaded CSV file and performs:
 **Visualizations:**
 
 - Calls generate_visualizations() to create plots
-  
 - Returns the processed report and generated plots
 
-- 
 #### 3. Function: generate_ai_insights(df_summary)
 
 def generate_ai_insights(df_summary):
@@ -59,9 +55,7 @@ def generate_ai_insights(df_summary):
     return response['message']['content']
     
 - Constructs a prompt using the dataset summary.
-
 - Sends the prompt to Mistral-7B via Ollama.
-
 - Returns AI-generated insights.
 
 
@@ -70,10 +64,10 @@ def generate_ai_insights(df_summary):
 Creates histograms for numeric columns and a correlation heatmap.
 
 plt.savefig(path)  # Saves each plot as an image
+
 plot_paths.append(path)  # Stores the paths for Gradio to display
 
 - Histograms show data distributions.
-
 - Heatmap visualizes feature correlations.
 
 
@@ -88,9 +82,7 @@ demo = gr.Interface(
 )
 
 - Uses Gradio to create a web-based UI.
-
 - Allows users to upload a CSV file.
-
 - Outputs text-based insights and visualizations.
 
 
@@ -99,7 +91,6 @@ demo = gr.Interface(
 demo.launch(share=True)
 
 - Launches the app with Gradio.
-
 - Enables public sharing of the interface.
 
 ### 📥 Installation & Usage
@@ -107,7 +98,6 @@ demo.launch(share=True)
 #### 1️⃣ Clone the Repository
 
 - git clone https://github.com/your-username/LLM-Powered-EDA.git
-
 - cd LLM-Powered-EDA
 
 #### 2️⃣ Install Dependencies
