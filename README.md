@@ -7,6 +7,12 @@ This project is an LLM-powered Exploratory Data Analysis (EDA) tool that allows 
 ### 🔍 Code Breakdown
 
 #### 1. Importing Libraries
+    import gradio as gr
+    import pandas as pd
+    import matplotlib.pyplot as plt
+    import seaborn as sns
+    import ollama
+    
 - Gradio: Used to create the interactive web interface.
 - Pandas: Handles CSV data processing.
 - Matplotlib & Seaborn: Generate visualizations.
@@ -44,28 +50,27 @@ This function processes the uploaded CSV file and performs:
 **4. Function: generate_visualizations(df)**
 Creates histograms for numeric columns and a correlation heatmap.
 
-plt.savefig(path)  # Saves each plot as an image
-
-plot_paths.append(path)  # Stores the paths for Gradio to display
+    plt.savefig(path)  # Saves each plot as an image
+    plot_paths.append(path)  # Stores the paths for Gradio to display
 
 - Histograms show data distributions.
 - Heatmap visualizes feature correlations.
 
 #### 5. Gradio Interface
-demo = gr.Interface(
-    fn=eda_analysis,
-    inputs=gr.File(type="filepath"),
-    outputs=[gr.Textbox(label="EDA Report"), gr.Gallery(label="Data Visualizations")],
-    title="📊 LLM-Powered Exploratory Data Analysis (EDA)",
-    description="Upload any dataset CSV file and get automated EDA insights with AI-powered analysis and visualizations."
-)
+    demo = gr.Interface(
+        fn=eda_analysis,
+        inputs=gr.File(type="filepath"),
+        outputs=[gr.Textbox(label="EDA Report"), gr.Gallery(label="Data Visualizations")],
+        title="📊 LLM-Powered Exploratory Data Analysis (EDA)",
+        description="Upload any dataset CSV file and get automated EDA insights with AI-powered analysis and visualizations."
+    )
 
 - Uses Gradio to create a web-based UI.
 - Allows users to upload a CSV file.
 - Outputs text-based insights and visualizations.
 
 #### 6. Running the Application
-demo.launch(share=True)
+    demo.launch(share=True)
 
 - Launches the app with Gradio.
 - Enables public sharing of the interface.
@@ -73,17 +78,17 @@ demo.launch(share=True)
 ### 📥 Installation & Usage
 
 #### 1️⃣ Clone the Repository
-- git clone https://github.com/your-username/LLM-Powered-EDA.git
-- cd LLM-Powered-EDA
+    git clone https://github.com/your-username/LLM-Powered-EDA.git
+    cd LLM-Powered-EDA
 
 #### 2️⃣ Install Dependencies
-- pip install gradio pandas matplotlib seaborn ollama
+    pip install gradio pandas matplotlib seaborn ollama
 
 #### 3️⃣ Start Ollama & Pull Mistral Model
-- ollama pull mistral:latest
+    ollama pull mistral:latest
 
 #### 4️⃣ Run the Application
-- python app.py
+    python app.py
   
 Opens a Gradio interface in the browser. Upload a CSV file and get automated EDA insights.
 
