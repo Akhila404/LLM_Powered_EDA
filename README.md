@@ -23,19 +23,19 @@ This project is an LLM-powered Exploratory Data Analysis (EDA) tool that allows 
 This function processes the uploaded CSV file and performs:
 
 **Missing value handling:**
-    - Numeric columns → Filled with median
-    - Categorical columns → Filled with mode
+- Numeric columns → Filled with median
+- Categorical columns → Filled with mode
 
 **Data Summary:**
-    - Generates df.describe(include='all')
-    - Identifies missing values
+- Generates df.describe(include='all')
+- Identifies missing values
 
 **AI-Powered Insights:**
-    - Calls generate_ai_insights() for LLM-generated analysis
+- Calls generate_ai_insights() for LLM-generated analysis
 
 **Visualizations:**
-    - Calls generate_visualizations() to create plots
-    - Returns the processed report and generated plots
+- Calls generate_visualizations() to create plots
+- Returns the processed report and generated plots
 
 #### 3. Function: generate_ai_insights(df_summary)
     def generate_ai_insights(df_summary):
